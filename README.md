@@ -2,6 +2,9 @@
 
 ## 概要
 ROS-Face-driverと通信して簡単な表情筋の操作をテストできるパッケージ
+
+- youtube link
+
 [![](https://i.gyazo.com/028d51303543b1cb5be1388b1f5db8c4.jpg)](https://www.youtube.com/watch?v=7tOlgr7ISOY&feature=youtu.be)
 
 ## 動作環境
