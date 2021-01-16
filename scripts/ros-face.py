@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-License-Identifier: BSD-2-Clause
 #
 #    Copyright (C) 2021 Masato Hidaka All right reserved.
 
