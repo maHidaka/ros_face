@@ -1,7 +1,7 @@
 # ROS-Face
 
 ## 概要
-ROS-Face-driverと通信して簡単な表情筋の操作をテストできるパッケージ
+制作したハードウェア[ROS-Face-driver](https://os.mbed.com/users/mhdk/code/ROS-Face-driver/)と通信して簡単な表情筋の操作をテストできるパッケージ
 
 - youtube link
 
