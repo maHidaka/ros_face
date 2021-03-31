@@ -65,7 +65,7 @@ int main(int argc, char **argv)
     ros::Rate loop_rate(10);
     while (ros::ok())
     {
-        char buf[256] = {0};
+        char buf[7] = {0};//読み込むサイズ(改行文字含む)+1byteを用意
         int recv_data = read(fd, buf, sizeof(buf)); //handleにつながっているファイルからnバイト読み込みbufに格納
         if (recv_data > 0)
         {
