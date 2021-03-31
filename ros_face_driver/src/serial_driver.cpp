@@ -30,8 +30,8 @@ int open_serial(const char *device_name)
 int fd;
 void serial_callback(const std_msgs::String &serial_msg)
 {
-    int rec = write(fd, serial_msg.data.c_str(), serial_msg.data.size());
-    if (rec >= 0)
+    int rec = write(fd, serial_msg.data.c_str(), serial_msg.data.size()); //write()----fdにserial_msg.data.c_str()が示すバッファから、最大serial_msg.data.size()バイトのデータを書き込む
+    if (rec >= 0)                                                         //write()の返り値recは、書き込み成功時は書き込んだバイト数　失敗時は-1
         printf("send:%s\n", serial_msg.data.c_str());
     else
     {
@@ -41,29 +41,32 @@ void serial_callback(const std_msgs::String &serial_msg)
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "s4_comport_serialport");
-    ros::NodeHandle n;
+    // 初期化のためのAPI
+    ros::init(argc, argv, "serial_driver"); // このノードは"serial_driver"という名前であるという意味
+    ros::NodeHandle n;                      //ノードハンドラの宣言
 
     //Publisher
-    ros::Publisher serial_pub = n.advertise<std_msgs::String>("Serial_in", 1000);
+    ros::Publisher serial_pub = n.advertise<std_msgs::String>("Serial_in", 1000); //std_msgs::String型のメッセージをSerial_inというトピックにキューサイズ1000で配信する
 
     //Subscriber
+    // SubscriberとしてSerial_outというトピックをSubscribeし、トピックが更新されたときは
+    // serial_callbackという名前のコールバック関数を実行する
     ros::Subscriber serial_sub = n.subscribe("Serial_out", 10, serial_callback);
 
     char device_name[] = "/dev/ttyACM0";
-    fd = open_serial(device_name);
+    fd = open_serial(device_name); //シリアルポートひらく
     if (fd < 0)
     {
         ROS_ERROR("Serial Fail: cound not open %s", device_name);
         printf("Serial Fail\n");
-        ros::shutdown();
+        ros::shutdown(); //ノードの停止
     }
 
     ros::Rate loop_rate(10);
     while (ros::ok())
     {
         char buf[256] = {0};
-        int recv_data = read(fd, buf, sizeof(buf));
+        int recv_data = read(fd, buf, sizeof(buf)); //handleにつながっているファイルからnバイト読み込みbufに格納
         if (recv_data > 0)
         {
             printf("recv:%03d %s\n", recv_data, buf);
