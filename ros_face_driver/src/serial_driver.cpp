@@ -62,10 +62,10 @@ int main(int argc, char **argv)
         ros::shutdown(); //ノードの停止
     }
 
-    ros::Rate loop_rate(10);
+    ros::Rate loop_rate(100);
     while (ros::ok())
     {
-        char buf[7] = {0};//読み込むサイズ(改行文字含む)+1byteを用意
+        char buf[34] = {0};//読み込むサイズ(改行文字含む)+1byteを用意
         int recv_data = read(fd, buf, sizeof(buf)); //handleにつながっているファイルからnバイト読み込みbufに格納
         if (recv_data > 0)
         {
