@@ -74,6 +74,7 @@ int main(int argc, char **argv)
             serial_msg.data = buf;
             serial_pub.publish(serial_msg);
         }
+        
         ros::spinOnce();
         loop_rate.sleep();
     }
