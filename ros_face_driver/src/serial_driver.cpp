@@ -59,6 +59,7 @@ int main(int argc, char **argv)
     {
         ROS_ERROR("Serial Fail: cound not open %s", device_name);
         printf("Serial Fail\n");
+
         ros::shutdown(); //ノードの停止
     }
 
