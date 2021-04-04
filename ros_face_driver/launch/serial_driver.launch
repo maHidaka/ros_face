@@ -1,0 +1,7 @@
+<launch>
+    <!-- serial_driver node -->>
+    <node pkg="ros_face_driver" type="serial_driver" name="serial_driver">
+
+    </node>
+
+</launch>
