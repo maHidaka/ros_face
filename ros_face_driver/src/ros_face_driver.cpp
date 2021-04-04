@@ -34,6 +34,7 @@ void RosFaceDriver::Callback(const std_msgs::String &cmd)
     RosFaceDriver::Publication(cmd);
 }
 
+
 int main(int argc, char**argv)
 {
 	ros::init(argc, argv, "ros_face_driver");
