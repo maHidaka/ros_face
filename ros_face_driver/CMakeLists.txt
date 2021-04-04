@@ -206,3 +206,5 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable(serial_driver src/serial_driver.cpp)
 target_link_libraries(serial_driver ${catkin_LIBRARIES})
+add_executable(ros_face_driver src/ros_face_driver.cpp)
+target_link_libraries(ros_face_driver ${catkin_LIBRARIES})
