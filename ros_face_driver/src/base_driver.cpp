@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "ros_face_msgs/FaceCmd.h"
+#include "ros_face_msgs/Ch.h"
 
 class BaseDriver
 {
@@ -13,7 +14,7 @@ private:
 public:
 	BaseDriver();
 	void Publication(std_msgs::String buf);
-	void Callback(const ros_face_msgs::FaceCmd &recieve_cmd);
+	void Callback(const ros_face_msgs::FaceCmd recieve_cmd);
 };
 
 BaseDriver::BaseDriver()
@@ -29,13 +30,15 @@ void BaseDriver::Publication(std_msgs::String buf)
 	pub.publish(send_cmd);
 }
 
-void BaseDriver::Callback(const std_msgs::String &recieve_cmd)
+void BaseDriver::Callback(const ros_face_msgs::FaceCmd recieve_cmd)
 {
 	/*
 	printf("sub:%s\n", recieve_cmd..c_str());
     BaseDriver::Publication(recieve_cmd);
 	*/
-	printf(reciev_cmd);
+
+    printf("soiya\n");
+    printf("%d\n",recieve_cmd.ch1.mode);
 }
 
 int main(int argc, char **argv)
