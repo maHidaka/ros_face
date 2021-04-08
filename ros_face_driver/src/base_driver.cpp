@@ -10,6 +10,7 @@ private:
 	ros::Publisher pub;
 	ros::Subscriber sub;
 	std_msgs::String send_cmd;
+	std_msgs::String format(ros_face_msgs::FaceCmd pre);
 
 public:
 	BaseDriver();
@@ -23,6 +24,11 @@ BaseDriver::BaseDriver()
 	sub = n.subscribe("face_cmd", 100, &BaseDriver::Callback, this);
 }
 
+std_msgs::String BaseDriver::format(ros_face_msgs::FaceCmd pre)
+{
+
+}
+
 void BaseDriver::Publication(std_msgs::String buf)
 {
 	send_cmd = buf;
@@ -32,13 +38,13 @@ void BaseDriver::Publication(std_msgs::String buf)
 
 void BaseDriver::Callback(const ros_face_msgs::FaceCmd recieve_cmd)
 {
+	
+    printf("soiya\n");
+    printf("%d\n",recieve_cmd.ch1.mode);
 	/*
 	printf("sub:%s\n", recieve_cmd..c_str());
     BaseDriver::Publication(recieve_cmd);
 	*/
-
-    printf("soiya\n");
-    printf("%d\n",recieve_cmd.ch1.mode);
 }
 
 int main(int argc, char **argv)
