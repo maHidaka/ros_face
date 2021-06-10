@@ -38,7 +38,6 @@ void BaseDriver::Publication(std_msgs::String buf)
 
 void BaseDriver::Callback(const ros_face_msgs::FaceCmd recieve_cmd)
 {
-	
     printf("soiya\n");
     printf("%d\n",recieve_cmd.ch1.mode);
 	/*
