@@ -26,9 +26,9 @@ BaseDriver::BaseDriver()
 
 std_msgs::String BaseDriver::format(ros_face_msgs::FaceCmd pre)
 {
-
 }
 
+//トピックSerial_outをパブリッシュする処理
 void BaseDriver::Publication(std_msgs::String buf)
 {
 	send_cmd = buf;
@@ -36,10 +36,12 @@ void BaseDriver::Publication(std_msgs::String buf)
 	pub.publish(send_cmd);
 }
 
+//face_cmdトピックが更新されたら呼ばれるコールバック関数
 void BaseDriver::Callback(const ros_face_msgs::FaceCmd recieve_cmd)
 {
-    printf("soiya\n");
-    printf("%d\n",recieve_cmd.ch1.mode);
+	printf("soiya\n");
+	printf("%d\n", recieve_cmd.ch1.mode);
+	BaseDriver::Publication(recieve_cmd);
 	/*
 	printf("sub:%s\n", recieve_cmd..c_str());
     BaseDriver::Publication(recieve_cmd);
