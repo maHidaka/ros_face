@@ -10,6 +10,7 @@ private:
 	ros::Publisher pub;
 	ros::Subscriber sub;
 	std_msgs::String send_cmd;
+	std_msgs::String setdata;
 	std_msgs::String format(ros_face_msgs::FaceCmd pre);
 
 public:
@@ -24,8 +25,11 @@ BaseDriver::BaseDriver()
 	sub = n.subscribe("face_cmd", 100, &BaseDriver::Callback, this);
 }
 
-std_msgs::String BaseDriver::format(ros_face_msgs::FaceCmd pre)
+//受け取ったface_cmdデータをSerial_outの形式に変換する
+std_msgs::String BaseDriver::format(ros_face_msgs::FaceCmd predata)
 {
+	setdata = predata.ch1;
+	return setdata;
 }
 
 //トピックSerial_outをパブリッシュする処理
@@ -39,13 +43,11 @@ void BaseDriver::Publication(std_msgs::String buf)
 //face_cmdトピックが更新されたら呼ばれるコールバック関数
 void BaseDriver::Callback(const ros_face_msgs::FaceCmd recieve_cmd)
 {
-	printf("soiya\n");
-	printf("%d\n", recieve_cmd.ch1.mode);
-	BaseDriver::Publication(recieve_cmd);
-	/*
-	printf("sub:%s\n", recieve_cmd..c_str());
-    BaseDriver::Publication(recieve_cmd);
-	*/
+	//printf("soiya\n");
+	//printf("%d\n", recieve_cmd.ch1.mode);
+	std_msgs::String tmp;
+	tmp = BaseDriver::format(recieve_cmd);
+	BaseDriver::Publication(tmp);
 }
 
 int main(int argc, char **argv)
