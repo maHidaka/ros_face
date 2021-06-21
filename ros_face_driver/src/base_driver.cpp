@@ -28,7 +28,7 @@ BaseDriver::BaseDriver()
 //受け取ったface_cmdデータをSerial_outの形式に変換する
 std_msgs::String BaseDriver::format(ros_face_msgs::FaceCmd predata)
 {
-	setdata = std_msgs::String(predata.ch1);
+	setdata.data = predata.ch1.mode;
 	return setdata;
 }
 
