@@ -50,3 +50,13 @@ rosrun ros-face ros-face.py
 - schematic
 
 [![](https://i.gyazo.com/d7a97aa6d9ba32ab8f96a417f3d4521c.png)](/face-driver.pdf)
+
+
+
+
+# 環境構築
+
+```
+sudo apt install ros-melodic-rosserial-arduino
+sudo apt install ros-melodic-rosserial
+```
