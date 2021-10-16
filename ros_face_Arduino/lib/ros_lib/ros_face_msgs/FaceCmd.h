@@ -33,18 +33,6 @@ namespace ros_face_msgs
       _ch9_type ch9;
       typedef ros_face_msgs::Ch _ch10_type;
       _ch10_type ch10;
-      typedef ros_face_msgs::Ch _ch11_type;
-      _ch11_type ch11;
-      typedef ros_face_msgs::Ch _ch12_type;
-      _ch12_type ch12;
-      typedef ros_face_msgs::Ch _ch13_type;
-      _ch13_type ch13;
-      typedef ros_face_msgs::Ch _ch14_type;
-      _ch14_type ch14;
-      typedef ros_face_msgs::Ch _ch15_type;
-      _ch15_type ch15;
-      typedef ros_face_msgs::Ch _ch16_type;
-      _ch16_type ch16;
 
     FaceCmd():
       ch1(),
@@ -56,13 +44,7 @@ namespace ros_face_msgs
       ch7(),
       ch8(),
       ch9(),
-      ch10(),
-      ch11(),
-      ch12(),
-      ch13(),
-      ch14(),
-      ch15(),
-      ch16()
+      ch10()
     {
     }
 
@@ -79,12 +61,6 @@ namespace ros_face_msgs
       offset += this->ch8.serialize(outbuffer + offset);
       offset += this->ch9.serialize(outbuffer + offset);
       offset += this->ch10.serialize(outbuffer + offset);
-      offset += this->ch11.serialize(outbuffer + offset);
-      offset += this->ch12.serialize(outbuffer + offset);
-      offset += this->ch13.serialize(outbuffer + offset);
-      offset += this->ch14.serialize(outbuffer + offset);
-      offset += this->ch15.serialize(outbuffer + offset);
-      offset += this->ch16.serialize(outbuffer + offset);
       return offset;
     }
 
@@ -101,17 +77,11 @@ namespace ros_face_msgs
       offset += this->ch8.deserialize(inbuffer + offset);
       offset += this->ch9.deserialize(inbuffer + offset);
       offset += this->ch10.deserialize(inbuffer + offset);
-      offset += this->ch11.deserialize(inbuffer + offset);
-      offset += this->ch12.deserialize(inbuffer + offset);
-      offset += this->ch13.deserialize(inbuffer + offset);
-      offset += this->ch14.deserialize(inbuffer + offset);
-      offset += this->ch15.deserialize(inbuffer + offset);
-      offset += this->ch16.deserialize(inbuffer + offset);
      return offset;
     }
 
     const char * getType(){ return "ros_face_msgs/FaceCmd"; };
-    const char * getMD5(){ return "2b52af6aa65e78a912fb943c008e7634"; };
+    const char * getMD5(){ return "0065dd40de5423c0414e7739813e1955"; };
 
   };
 

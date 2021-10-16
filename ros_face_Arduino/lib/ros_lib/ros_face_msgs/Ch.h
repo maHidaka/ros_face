@@ -12,14 +12,11 @@ namespace ros_face_msgs
   class Ch : public ros::Msg
   {
     public:
-      typedef int8_t _mode_type;
-      _mode_type mode;
-      typedef int8_t _time_type;
-      _time_type time;
+      typedef bool _state_type;
+      _state_type state;
 
     Ch():
-      mode(0),
-      time(0)
+      state(0)
     {
     }
 
@@ -27,19 +24,12 @@ namespace ros_face_msgs
     {
       int offset = 0;
       union {
-        int8_t real;
+        bool real;
         uint8_t base;
-      } u_mode;
-      u_mode.real = this->mode;
-      *(outbuffer + offset + 0) = (u_mode.base >> (8 * 0)) & 0xFF;
-      offset += sizeof(this->mode);
-      union {
-        int8_t real;
-        uint8_t base;
-      } u_time;
-      u_time.real = this->time;
-      *(outbuffer + offset + 0) = (u_time.base >> (8 * 0)) & 0xFF;
-      offset += sizeof(this->time);
+      } u_state;
+      u_state.real = this->state;
+      *(outbuffer + offset + 0) = (u_state.base >> (8 * 0)) & 0xFF;
+      offset += sizeof(this->state);
       return offset;
     }
 
@@ -47,26 +37,18 @@ namespace ros_face_msgs
     {
       int offset = 0;
       union {
-        int8_t real;
+        bool real;
         uint8_t base;
-      } u_mode;
-      u_mode.base = 0;
-      u_mode.base |= ((uint8_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      this->mode = u_mode.real;
-      offset += sizeof(this->mode);
-      union {
-        int8_t real;
-        uint8_t base;
-      } u_time;
-      u_time.base = 0;
-      u_time.base |= ((uint8_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      this->time = u_time.real;
-      offset += sizeof(this->time);
+      } u_state;
+      u_state.base = 0;
+      u_state.base |= ((uint8_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      this->state = u_state.real;
+      offset += sizeof(this->state);
      return offset;
     }
 
     const char * getType(){ return "ros_face_msgs/Ch"; };
-    const char * getMD5(){ return "0c50212cd9e0b383e239e06a5842957d"; };
+    const char * getMD5(){ return "001fde3cab9e313a150416ff09c08ee4"; };
 
   };
 

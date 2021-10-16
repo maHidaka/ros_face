@@ -72,7 +72,7 @@ add_message_files(
 generate_messages(
   DEPENDENCIES
   std_msgs
-  #ros_face_msgs
+  ros_face_msgs
 )
 
 ################################################

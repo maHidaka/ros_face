@@ -1,7 +1,5 @@
 <launch>
-    <!-- base_driver node -->>
-    <node pkg="ros_face_driver" type="base_driver" name="base_driver">
-
+    <node pkg="rosserial_python" type="serial_node" name="serial_node">
+        <param name="port" value="/dev/ttyACM0"/>
     </node>
-
 </launch>
