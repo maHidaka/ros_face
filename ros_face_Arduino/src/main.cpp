@@ -22,17 +22,16 @@ void disable(){
 void Cb( const ros_face_msgs::FaceCmd& data){
     disable();
     digitalWrite(13,true);
-    digitalWrite(2, data.ch2.state);
-    digitalWrite(3, data.ch3.state);
-    digitalWrite(4, data.ch4.state);
-    digitalWrite(5, data.ch5.state);
-    digitalWrite(6, data.ch6.state);
-    digitalWrite(7, data.ch7.state);
-    digitalWrite(8, data.ch8.state);
-    digitalWrite(9, data.ch9.state);
-    digitalWrite(10, data.ch10.state);
-    digitalWrite(11, data.ch11.state);
-    digitalWrite(12, data.ch12.state);
+    digitalWrite(2, data.ch1.state);
+    digitalWrite(3, data.ch2.state);
+    digitalWrite(4, data.ch3.state);
+    digitalWrite(5, data.ch4.state);
+    digitalWrite(6, data.ch5.state);
+    digitalWrite(7, data.ch6.state);
+    digitalWrite(8, data.ch7.state);
+    digitalWrite(9, data.ch8.state);
+    digitalWrite(10, data.ch9.state);
+    digitalWrite(11, data.ch10.state);
 
 
     delay(2);
