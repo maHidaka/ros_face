@@ -2,6 +2,10 @@
     <node pkg="joy" type="joy_node" name="joy_node">
         <param name="dev" type="string" value="/dev/input/js0" />
     </node>
+    
+    <node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
+        <param name="port" value="/dev/ttyACM0"/>
+    </node>
 
     
 </launch>

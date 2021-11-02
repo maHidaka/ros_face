@@ -14,9 +14,12 @@ namespace ros_face_msgs
     public:
       typedef bool _state_type;
       _state_type state;
+      typedef float _time_type;
+      _time_type time;
 
     Ch():
-      state(0)
+      state(0),
+      time(0)
     {
     }
 
@@ -30,6 +33,16 @@ namespace ros_face_msgs
       u_state.real = this->state;
       *(outbuffer + offset + 0) = (u_state.base >> (8 * 0)) & 0xFF;
       offset += sizeof(this->state);
+      union {
+        float real;
+        uint32_t base;
+      } u_time;
+      u_time.real = this->time;
+      *(outbuffer + offset + 0) = (u_time.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_time.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_time.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_time.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->time);
       return offset;
     }
 
@@ -44,11 +57,22 @@ namespace ros_face_msgs
       u_state.base |= ((uint8_t) (*(inbuffer + offset + 0))) << (8 * 0);
       this->state = u_state.real;
       offset += sizeof(this->state);
+      union {
+        float real;
+        uint32_t base;
+      } u_time;
+      u_time.base = 0;
+      u_time.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_time.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_time.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_time.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->time = u_time.real;
+      offset += sizeof(this->time);
      return offset;
     }
 
     const char * getType(){ return "ros_face_msgs/Ch"; };
-    const char * getMD5(){ return "001fde3cab9e313a150416ff09c08ee4"; };
+    const char * getMD5(){ return "9ffa82afcde9bfe81b242e5b61986135"; };
 
   };
 

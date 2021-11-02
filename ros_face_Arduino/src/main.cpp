@@ -2,7 +2,13 @@
 #include <ros_face_msgs/FaceCmd.h>
 #include <ros_face_msgs/Ch.h>
 
+
+
+#define topic_period 0.5f
+#define main_period 0.025f
+#define enable_time 2
 ros::NodeHandle  nh;
+
 
 void disable(){
     digitalWrite(2, LOW);
@@ -16,25 +22,30 @@ void disable(){
     digitalWrite(10, LOW);
     digitalWrite(11, LOW);
     digitalWrite(12, LOW);
-    digitalWrite(13, LOW);
 }
 
 void Cb( const ros_face_msgs::FaceCmd& data){
-    disable();
     digitalWrite(13,true);
-    digitalWrite(2, data.ch1.state);
-    digitalWrite(3, data.ch2.state);
-    digitalWrite(4, data.ch3.state);
-    digitalWrite(5, data.ch4.state);
-    digitalWrite(6, data.ch5.state);
-    digitalWrite(7, data.ch6.state);
-    digitalWrite(8, data.ch7.state);
-    digitalWrite(9, data.ch8.state);
-    digitalWrite(10, data.ch9.state);
-    digitalWrite(11, data.ch10.state);
 
+    for (float i = 0; i <= topic_period; i=i+main_period){
+        disable();
+        if(data.ch1.time >= i)digitalWrite(2, data.ch1.state);
+        if(data.ch2.time >= i)digitalWrite(3, data.ch2.state);
+        if(data.ch3.time >= i)digitalWrite(4, data.ch3.state);
+        if(data.ch4.time >= i)digitalWrite(5, data.ch4.state);
+        if(data.ch5.time >= i)digitalWrite(6, data.ch5.state);
+        if(data.ch6.time >= i)digitalWrite(7, data.ch6.state);
+        if(data.ch7.time >= i)digitalWrite(8, data.ch7.state);
+        if(data.ch8.time >= i)digitalWrite(9, data.ch8.state);
+        if(data.ch9.time >= i)digitalWrite(10, data.ch9.state);
+        if(data.ch10.time >= i)digitalWrite(11, data.ch10.state);
 
-    delay(2);
+        delay(enable_time);
+        disable();
+        int buy_time = main_period - enable_time;
+        delay(buy_time);
+    }
+    digitalWrite(13,false);
     disable();
 }
 
@@ -55,6 +66,7 @@ void setup()
     pinMode(10, OUTPUT);
     pinMode(11, OUTPUT);
     pinMode(12, OUTPUT);
+    nh.getHardware()->setBaud(115200);
     nh.initNode();
     nh.subscribe(sub);
 }
@@ -62,5 +74,5 @@ void setup()
 void loop()
 {
     nh.spinOnce();
-    delay(500);
+    delay(50);
 }

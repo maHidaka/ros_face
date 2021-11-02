@@ -81,7 +81,7 @@ namespace ros_face_msgs
     }
 
     const char * getType(){ return "ros_face_msgs/FaceCmd"; };
-    const char * getMD5(){ return "0065dd40de5423c0414e7739813e1955"; };
+    const char * getMD5(){ return "b8d788cb6c209cab6623f7cf0a2c057e"; };
 
   };
 
