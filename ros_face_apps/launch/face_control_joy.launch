@@ -3,9 +3,15 @@
         <param name="dev" type="string" value="/dev/input/js0" />
     </node>
     
-    <node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
-        <param name="port" value="/dev/ttyACM0"/>
+
+    <node pkg="ros_face_apps" type="joy_face.py" name="joy_face">
+
     </node>
+
+    <include file="$(find ros_face_driver)/launch/base_driver.launch">
+
+    </include>
+
 
     
 </launch>

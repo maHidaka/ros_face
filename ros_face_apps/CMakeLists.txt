@@ -11,7 +11,9 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   roscpp
   std_msgs
+  joy
   ros_face_msgs
+  ros_face_driver
 )
 
 ## System dependencies are found with CMake's conventions
@@ -108,6 +110,7 @@ catkin_package(
 #  LIBRARIES ros-face
 #  CATKIN_DEPENDS rospy
 #  DEPENDS system_lib
+  $(catkin_INCLUDE_DIRS)
 )
 
 ###########
