@@ -14,10 +14,9 @@ class JoyFace:
     def joy_callback(self, msg):
         if  msg.buttons[0] == 1:
             face_cmd = FaceCmd()
-            face_cmd.cmd = "blink_L"
+            face_cmd.cmd =
             self.publish_face_cmd(face_cmd)
         if msg.buttons[1] == 1:
-            face
 
         if msg.buttons[2] == 1:
 
