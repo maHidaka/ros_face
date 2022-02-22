@@ -1,62 +1,35 @@
 # ROS-Face
 
-## 概要
-制作したハードウェア[ROS-Face-driver](https://os.mbed.com/users/mhdk/code/ROS-Face-driver/)と通信して簡単な表情筋の操作をテストできるパッケージ
+ROS-Faceは、rosのシステムを使って人間の表情筋を操作することを目的としたプロジェクトです。
+あなたはロボットを操作するときのように、人間の表情をコントロールできます。
 
-- youtube link
+# ATTENTION
+このプロジェクトに起因するいかなる事故や不利益もmaHidakaは受け付けません。すべて自己責任であることを了承した人のみこのコードの利用をBSD 2-Clause License
+の範疇で許可します。
 
-[![](https://i.gyazo.com/028d51303543b1cb5be1388b1f5db8c4.jpg)](https://www.youtube.com/watch?v=7tOlgr7ISOY&feature=youtu.be)
+## setup
 
-## 動作環境
-- OS: Ubuntu 18.04
-- ROSディストリビューション: melodic
+### install rosserial
 
-## 実行方法
-
-パッケージを構築
-```
-cd ~/catkin_ws/src
-git clone https://github.com/maHidaka/ros-face
-cd ~/catkin_ws
-catkin_make
-```
-<br>
-
-- ROS-Face-driverをPCに接続する
-
-```
-roscore
-```
-ROS-Face-driverとの接続
-
-```
-rosrun rosserial_python serial_node.py /dev/ttyACM0
-```
-このパッケージの実行
-```
-rosrun ros-face ros-face.py
-```
----
-- ch0~7までのコマンドを入力しEnterKeyを押下すると対応するROS-Face-driverのポートから筋電司令パルスが出力される
-
-## ROS-Face-driver
-- mbedOS
-  - https://os.mbed.com/users/mhdk/code/ROS-Face-driver/
-
-- device 
-  - Nucleo f446RE
-  
-  
-- schematic
-
-[![](https://i.gyazo.com/d7a97aa6d9ba32ab8f96a417f3d4521c.png)](/face-driver.pdf)
-
-
-
-
-# 環境構築
+事前にrosの環境構築ができている必要があります。
+melodicでの動作を確認済みです。他のバージョンでも動くかもしれません。
 
 ```
 sudo apt install ros-melodic-rosserial-arduino
 sudo apt install ros-melodic-rosserial
 ```
+
+
+### Upload sketch to Arduino Uno
+
+Main sketch is here "ROS_FACE/ros_face_Arduino/src/main.cpp".
+
+platformioで書き込みます
+platformioについてや、ArduinoIDEを使った書き込みについては別サイトの説明をご覧ください。
+
+
+## Example usage
+
+1. ''' cd catkin_ws/src'''
+1. ```git clone ~~```
+1. 
