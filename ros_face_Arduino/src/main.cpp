@@ -7,12 +7,8 @@
 #include <Servo.h>
 
 
-#define topic_period 0.5f
-#define main_period 0.025f
-#define enable_time 2
-
 #define pulse_width 2400
-#define disable 500
+
 
 
 
@@ -47,64 +43,64 @@ void Cb( const ros_face_msgs::FaceCmd& data){
     if(data.ch1.state){
         channel_1.writeMicroseconds(pulse_width);
     }else{
-        channel_1.writeMicroseconds(disable);
+        channel_1.writeMicroseconds(0);
     }
 
     if(data.ch2.state){
         channel_2.writeMicroseconds(pulse_width);
     }else{
-        channel_2.writeMicroseconds(disable);
+        channel_2.writeMicroseconds(0);
     }
 
     if(data.ch3.state){
         channel_3.writeMicroseconds(pulse_width);
     }else{
-        channel_3.writeMicroseconds(disable);
+        channel_3.writeMicroseconds(0);
     }
 
     if(data.ch4.state){
         channel_4.writeMicroseconds(pulse_width);
     }else{
-        channel_4.writeMicroseconds(disable);
+        channel_4.writeMicroseconds(0);
     }
 
     if(data.ch5.state){
         channel_5.writeMicroseconds(pulse_width);
     }else{
-        channel_5.writeMicroseconds(disable);
+        channel_5.writeMicroseconds(0);
     }
 
     if(data.ch6.state){
         channel_6.writeMicroseconds(pulse_width);
     }else{
-        channel_6.writeMicroseconds(disable);
+        channel_6.writeMicroseconds(0);
     }
 
     if(data.ch7.state){
         channel_7.writeMicroseconds(pulse_width);
     }else{
-        channel_7.writeMicroseconds(disable);
+        channel_7.writeMicroseconds(0);
     }
 
     if(data.ch8.state){
         channel_8.writeMicroseconds(pulse_width);
     }else{
-        channel_8.writeMicroseconds(disable);
+        channel_8.writeMicroseconds(0);
     }
 
     if(data.ch9.state){
         channel_9.writeMicroseconds(pulse_width);
     }else{
-        channel_9.writeMicroseconds(disable);
+        channel_9.writeMicroseconds(0);
     }
 
     if(data.ch10.state){
         channel_10.writeMicroseconds(pulse_width);
     }else{
-        channel_10.writeMicroseconds(disable);
+        channel_10.writeMicroseconds(0);
     }
 
-    delay(1);
+    delay(20);
 }
 
 ros::Subscriber<ros_face_msgs::FaceCmd> sub("face_cmd", Cb);
@@ -116,20 +112,20 @@ void setup()
     nh.getHardware()->setBaud(115200);
     nh.initNode();
     nh.subscribe(sub);
-    channel_1.attach(pin1,500,2400);
-    channel_2.attach(pin2,500,2400);
-    channel_3.attach(pin3,500,2400);
-    channel_4.attach(pin4,500,2400);
-    channel_5.attach(pin5,500,2400);
-    channel_6.attach(pin6,500,2400);
-    channel_7.attach(pin7,500,2400);
-    channel_8.attach(pin8,500,2400);
-    channel_9.attach(pin9,500,2400);
-    channel_10.attach(pin10,500,2400);
+    channel_1.attach(pin1,40,2400);
+    channel_2.attach(pin2,40,2400);
+    channel_3.attach(pin3,40,2400);
+    channel_4.attach(pin4,40,2400);
+    channel_5.attach(pin5,40,2400);
+    channel_6.attach(pin6,40,2400);
+    channel_7.attach(pin7,40,2400);
+    channel_8.attach(pin8,40,2400);
+    channel_9.attach(pin9,40,2400);
+    channel_10.attach(pin10,40,2400);
 }
 
 void loop()
 {
     nh.spinOnce();
-    delay(1);
+    delayMicroseconds(5);
 }
