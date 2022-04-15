@@ -3,6 +3,7 @@
 ROS-Face is a project that aims to manipulate human facial muscles using the ros system.
 You can control human facial expressions just as you would control a robot.
 
+![soiya_Trim_Trim (1) (1)](https://user-images.githubusercontent.com/50083939/163589920-d6afd55d-93ee-46d3-ae5e-9531f018d53c.gif)
 
 
 # ATTENTION
