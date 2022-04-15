@@ -1,18 +1,19 @@
 # ROS-Face
 
-ROS-Faceは、rosのシステムを使って人間の表情筋を操作することを目的としたプロジェクトです。
-あなたはロボットを操作するときのように、人間の表情をコントロールできます。
+ROS-Face is a project that aims to manipulate human facial muscles using the ros system.
+You can control human facial expressions just as you would control a robot.
+
+
 
 # ATTENTION
-このプロジェクトに起因するいかなる事故や不利益もmaHidakaは受け付けません。すべて自己責任であることを了承した人のみこのコードの利用をBSD 2-Clause License
-の範疇で許可します。
+maHidaka will not accept any accident or detriment caused by this project. Use of this code is at your own risk and is subject to the BSD 2-Clause License
 
 ## setup
 
 ### install rosserial
 
-事前にrosの環境構築ができている必要があります。
-melodicでの動作を確認済みです。他のバージョンでも動くかもしれません。
+The ros environment must have been established in advance.
+We have already confirmed that it works with melodic. Other versions may also work.
 
 ```
 sudo apt install ros-melodic-rosserial-arduino
@@ -20,12 +21,16 @@ sudo apt install ros-melodic-rosserial
 ```
 
 
+### Schematic
+![97066d7b3dbf9945d558fdc4049416ad](https://user-images.githubusercontent.com/50083939/163585114-51e26d90-7f34-4871-91ee-c89b9eb7086b.png)
+
+
 ### Upload sketch to Arduino Uno
 
 Main sketch is here "ROS_FACE/ros_face_Arduino/src/main.cpp".
 
-platformioで書き込みます
-platformioについてや、ArduinoIDEを使った書き込みについては別サイトの説明をご覧ください。
+Upload this sketch to arduino using platformio.
+For more information about platformio and how to upload the sketch using ArduinoIDE, please refer to the instructions on another site.
 
 
 ## Example usage
