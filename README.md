@@ -30,6 +30,7 @@ platformioについてや、ArduinoIDEを使った書き込みについては別
 
 ## Example usage
 
-1. ''' cd catkin_ws/src'''
-1. ```git clone ~~```
-1. 
+1. ``` cd catkin_ws/src```
+1. ```git clone https://github.com/maHidaka/ros_face.git```
+1. ```catkin build```
+2. ```roslaunch ros_face_apps face_control_joy.launch```
