@@ -5,6 +5,9 @@ You can control human facial expressions just as you would control a robot.
 
 ![ezgif-1-83660fbc68](https://user-images.githubusercontent.com/50083939/163762617-173b62d3-3896-47a3-9797-691d194df25e.gif)
 
+Demo movie
+https://www.youtube.com/watch?v=VLdtHsNA5pQ
+
 # ATTENTION
 maHidaka is not responsible for any accidents or damages caused by this project. Use of this code is at your own risk and is subject to the BSD2-Clause license.
 
