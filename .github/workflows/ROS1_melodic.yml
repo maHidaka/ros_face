@@ -1,0 +1,20 @@
+name: ROS1 melodic
+
+on: [push]
+
+jobs:
+  industrial_ci:
+    strategy:
+      matrix:
+        env:
+          - {ROS_DISTRO: "melodic",
+            ROS_REPO: "main",
+            CATKIN_LINT: "false",
+            OPT_VI: "-vi",
+            CATKIN_LINT_ARGS: "--ignore unknown_package"}
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: 'ros-industrial/industrial_ci@master'
+        env: ${{matrix.env}}
