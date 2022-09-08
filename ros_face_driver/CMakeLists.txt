@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   ros_face_msgs
+  joy
 )
 
 ## System dependencies are found with CMake's conventions
