@@ -1,3 +1,6 @@
+![](https://github.com/maHidaka/ros_face/workflows/PlatformIO%20CI/badge.svg)
+![](https://github.com/maHidaka/ros_face/workflows/ROS1%20melodic/badge.svg)
+
 # ROS-Face
 
 ROS-Face is a project that aims to manipulate human facial muscles using the ros system.
